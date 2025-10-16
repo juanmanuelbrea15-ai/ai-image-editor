@@ -1,0 +1,1 @@
+@tailwind base; @tailwind components; @tailwind utilities; /* Checkerboard pattern */ .checkerboard { background-image: checkerboard-pattern; } /* Custom slider styling */ .slider { /* styles here */ } /* Animations for toast notifications */ .toast { /* animations here */ }
