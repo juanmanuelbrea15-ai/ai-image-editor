@@ -38,6 +38,7 @@ export function Slider({
   const [localValue, setLocalValue] = useState(value)
 
   // Debounced onChange handler
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedOnChange = useCallback(
     debounce((newValue: number) => {
       onChange(newValue)

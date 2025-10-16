@@ -57,7 +57,7 @@ export async function removeBackground(imageDataUrl: string): Promise<string> {
       if (error.response?.status === 413) {
         throw new Error('Image file too large for background removal')
       }
-      if (error.response?.status >= 500) {
+      if (error.response?.status && error.response.status >= 500) {
         throw new Error('Background removal service temporarily unavailable')
       }
     }

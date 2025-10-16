@@ -2,7 +2,7 @@
  * Gallery component for props and processed images
  */
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useEditorStore } from '@/store/editorStore'
 import { Modal } from '@/components/UI/Modal'
 import { Button } from '@/components/UI/Button'

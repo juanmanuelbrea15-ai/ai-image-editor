@@ -2,7 +2,7 @@
  * Controls component with action buttons
  */
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/UI/Button'
 import { Modal } from '@/components/UI/Modal'
@@ -27,7 +27,6 @@ export default function Controls() {
     undo,
     redo,
     reset,
-    compareMode,
     setCompareMode,
     clearEditor,
     addImageToGallery

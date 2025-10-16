@@ -2,7 +2,7 @@
  * Viewport component with Fabric.js canvas integration
  */
 
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { fabric } from 'fabric'
 import { useEditorStore } from '@/store/editorStore'
 import type { CanvasTool } from '@/types'
@@ -61,7 +61,7 @@ export default function Viewport() {
 
     const canvas = fabricCanvasRef.current
 
-    fabric.Image.fromURL(imageToDisplay.dataUrl, (img) => {
+    fabric.Image.fromURL(imageToDisplay.dataUrl, (img: fabric.Image) => {
       canvas.clear()
       
       // Scale image to fit canvas

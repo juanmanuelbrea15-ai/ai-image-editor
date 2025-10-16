@@ -2,7 +2,7 @@
  * Adjust tab component for color and tone adjustments
  */
 
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Button } from '@/components/UI/Button'
 import { Slider } from '@/components/UI/Slider'
 import { useEditorStore } from '@/store/editorStore'
@@ -18,7 +18,6 @@ export default function AdjustTab() {
   const {
     adjustmentValues,
     updateAdjustmentValues,
-    currentImage,
     originalImage,
     addToHistory,
     setLoading
@@ -57,6 +56,7 @@ export default function AdjustTab() {
     }
 
     applyChanges()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedValues])
 
   // Preset buttons

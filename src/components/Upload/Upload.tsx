@@ -2,7 +2,7 @@
  * Upload component for initial image upload
  */
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DragDropZone } from '@/components/UI/DragDropZone'
 import { useEditorStore } from '@/store/editorStore'

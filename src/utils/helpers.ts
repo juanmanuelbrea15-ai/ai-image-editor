@@ -6,13 +6,13 @@
  * Debounce function - delays execution until after a specified time has elapsed
  * since the last invocation
  */
-export function debounce<T extends (...args: unknown[]) => unknown>(
+export function debounce<T extends (...args: never[]) => void>(
   func: T,
   wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null
+): T {
+  let timeout: ReturnType<typeof setTimeout> | null = null
   
-  return function executedFunction(...args: Parameters<T>) {
+  return ((...args: never[]) => {
     const later = () => {
       timeout = null
       func(...args)
@@ -22,7 +22,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
       clearTimeout(timeout)
     }
     timeout = setTimeout(later, wait)
-  }
+  }) as T
 }
 
 /**

@@ -2,7 +2,7 @@
  * Restore tab component for image restoration with brush tool
  */
 
-import React from 'react'
+// Restore tab component
 import { Slider } from '@/components/UI/Slider'
 import { Button } from '@/components/UI/Button'
 import { useEditorStore } from '@/store/editorStore'

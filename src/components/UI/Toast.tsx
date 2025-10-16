@@ -2,7 +2,7 @@
  * Toast notification component
  */
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { ToastMessage } from '@/types'
 
 interface ToastProps {
@@ -16,6 +16,13 @@ interface ToastProps {
 export function Toast({ message, onDismiss }: ToastProps) {
   const [isExiting, setIsExiting] = useState(false)
 
+  const handleDismiss = () => {
+    setIsExiting(true)
+    setTimeout(() => {
+      onDismiss(message.id)
+    }, 300) // Match animation duration
+  }
+
   useEffect(() => {
     const duration = message.duration || 3000
 
@@ -25,14 +32,8 @@ export function Toast({ message, onDismiss }: ToastProps) {
     }, duration)
 
     return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message])
-
-  const handleDismiss = () => {
-    setIsExiting(true)
-    setTimeout(() => {
-      onDismiss(message.id)
-    }, 300) // Match animation duration
-  }
 
   // Icon based on type
   const getIcon = () => {
@@ -121,35 +122,4 @@ export function ToastContainer({ toasts, onDismiss }: ToastContainerProps) {
   )
 }
 
-// Add animations to index.css
-const styles = `
-@keyframes slide-in {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-out {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-.animate-slide-in {
-  animation: slide-in 0.3s ease-out;
-}
-
-.animate-slide-out {
-  animation: slide-out 0.3s ease-in;
-}
-`
+// Animations are defined in index.css

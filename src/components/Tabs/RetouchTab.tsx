@@ -2,7 +2,7 @@
  * Retouch tab component for AI-powered image enhancement
  */
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Button } from '@/components/UI/Button'
 import { Checkbox } from '@/components/UI/Checkbox'
 import { DragDropZone } from '@/components/UI/DragDropZone'
